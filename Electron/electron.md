@@ -65,6 +65,15 @@ The issue involved **incorrect translation of `MenuItem` enumeration values** in
 
 ---
 
+## 📸 Screenshots
+
+![Screenshot 1](./Screenshot%202026-04-15%20200734.png)
+![Screenshot 2](./Screenshot%202026-04-15%20200744.png)
+![Screenshot 3](./Screenshot%202026-04-15%20200756.png)
+![Screenshot 4](./Screenshot%202026-04-15%20200805.png)
+
+---
+
 ## 🧠 Key Learnings
 
 > *Open source is more than writing code.*

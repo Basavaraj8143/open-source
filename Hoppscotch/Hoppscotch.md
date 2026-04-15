@@ -139,6 +139,14 @@ report.result = report.result && _allTestsPassed;
 
 ---
 
+## 📸 Screenshots
+
+![Screenshot 1](./Screenshot%202026-04-15%20200411.png)
+![Screenshot 2](./Screenshot%202026-04-15%20200429.png)
+![Screenshot 3](./Screenshot%202026-04-15%20200436.png)
+
+---
+
 ## 🧠 Key Learnings
 
 > *A function's name is a contract. When code breaks that contract, either fix the code — or fix the name.*

@@ -1,0 +1,146 @@
+# 🧑‍💻 Open Source Contribution – Hoppscotch
+
+## 📌 Project
+
+Contributed to Hoppscotch — an open-source API development ecosystem.
+
+---
+
+## 🐞 Issue Details
+
+* **Issue Number:** #6118
+* **Title:** `hasFailedTestCases` returns true when all tests pass, false when tests fail
+* **Type:** Logic Bug (CLI module)
+
+---
+
+## ❗ Problem Statement
+
+The function `hasFailedTestCases` had incorrect behavior:
+
+* Returned `true` when **all tests passed**
+* Returned `false` when **any test failed**
+
+This contradicted:
+
+* The function name (`hasFailedTestCases`)
+* The JSDoc description:
+
+  > "True, if one or more failed test-cases found"
+
+---
+
+## 🔍 Root Cause
+
+The implementation used:
+
+```ts
+A.every(({ failed }) => failed === 0)
+```
+
+### Explanation:
+
+* `every()` checks if **all elements satisfy a condition**
+* `failed === 0` means no failures
+
+👉 So the function returned `true` only when all tests passed
+👉 This is the **inverse of expected behavior**
+
+---
+
+## 🛠️ My Approach
+
+I analyzed the logic and proposed fixing it by changing:
+
+```ts
+A.every(({ failed }) => failed === 0)
+```
+
+to:
+
+```ts
+A.some(({ failed }) => failed > 0)
+```
+
+### Reason:
+
+* `some()` checks if **any element satisfies the condition**
+* `failed > 0` detects at least one failure
+
+👉 This aligns with:
+
+* Function name
+* Expected behavior
+* Documentation
+
+---
+
+## ⚠️ Review Feedback & Insight
+
+During the PR review, it was identified that:
+
+* The function was used in another file (`request.ts`)
+* That usage depended on the **previous incorrect behavior**
+
+---
+
+## ✅ Final Solution (Merged)
+
+Instead of changing logic across multiple places, the maintainer improved the design:
+
+### ✔️ Renamed the Function
+
+```ts
+hasFailedTestCases → hasAllTestsPassed
+```
+
+### ✔️ Kept Existing Logic
+
+```ts
+A.every(({ failed }) => failed === 0)
+```
+
+### ✔️ Updated Usage
+
+```ts
+report.result = report.result && _allTestsPassed;
+```
+
+---
+
+## 🎯 Why This Solution Was Better
+
+* Avoided breaking existing behavior
+* Reduced system-wide impact
+* Improved naming clarity
+* Maintained consistency across codebase
+
+---
+
+## 📦 Pull Request
+
+* **PR Title:** refactor(cli): match test-result helper name to documented contract
+* **PR Number:** #6122
+* **Status:** ✅ Merged
+
+---
+
+## 🧠 Key Learnings
+
+* Logic must align with naming and documentation
+* Always check how a function is used before modifying it
+* Minimal, low-risk changes are preferred in production code
+* Multiple valid solutions can exist — choose the one with least impact
+* Code reviews are valuable for learning better design approaches
+
+---
+
+## 🚀 Contribution Summary
+
+* Identified and analyzed a logic inconsistency
+* Proposed and implemented a fix
+* Collaborated with maintainers during review
+* Adapted to an improved solution (function renaming)
+* Successfully contributed to a production-level open-source project
+
+---

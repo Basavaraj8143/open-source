@@ -1,0 +1,84 @@
+## 🚀 Open Source Contribution — Electron Documentation (Localization)
+
+### 📌 Project
+
+* Repository: Electron
+* Area: Documentation (Chinese Localization via Crowdin)
+
+---
+
+### 🎯 Problem Identified
+
+The issue involved incorrect translation of **MenuItem enumeration values** in the Chinese API documentation.
+
+* Enum values like `normal`, `checkbox`, `radio`, etc. were translated into Chinese.
+* This caused confusion because these values represent **code-level constants** and must remain in English.
+* There were also:
+
+  * Incorrect HTML `<code>` formatting
+  * Extra spaces inside code tags
+  * Punctuation inconsistencies
+  * Broken links and mismatched variables
+
+---
+
+### 🛠️ Work Done
+
+#### 1. Investigated the Issue
+
+* Analyzed the problem reported in the GitHub issue.
+* Understood that Electron uses **Crowdin** for managing translations (not direct PRs).
+
+#### 2. Followed Correct Workflow
+
+* Used Crowdin platform instead of submitting a GitHub PR.
+* Located the affected documentation (`menu-item.md`) in Chinese (Simplified).
+
+#### 3. Fixed Translation Errors
+
+* Ensured enum values like `checkbox`, `radio`, `normal` were **not translated**.
+* Corrected `<code>` formatting:
+
+  * Removed extra spaces (e.g., `<code> type </code>` → `<code>type</code>`)
+  * Avoided translating inside `<code>` blocks
+* Fixed punctuation:
+
+  * Replaced `.` with `。` where required
+* Corrected broken or mismatched HTML links by copying exact source values
+* Removed duplicate lines and resolved missing variable warnings
+
+#### 4. Validation
+
+* Cleared all Crowdin validation errors (red warnings)
+* Ensured consistency with localization guidelines
+
+#### 5. Collaboration
+
+* Communicated progress on the GitHub issue
+* Maintainers reviewed and completed final adjustments
+* Issue was successfully marked as **resolved**
+
+---
+
+### 🧠 Key Learnings
+
+* Open source contributions are not limited to code — **documentation and localization are equally important**
+* Always follow project-specific workflows (Crowdin instead of PRs in this case)
+* Small issues (formatting, punctuation, consistency) can impact real-world developer experience
+* Collaboration with maintainers is part of the contribution process
+* Precision matters — especially in structured formats like documentation
+
+---
+
+### ✅ Outcome
+
+* Contributed to improving Electron's Chinese documentation
+* Helped resolve inconsistencies in API representation
+* Successfully participated in a real-world open source workflow
+
+---
+
+### 🔗 Reference
+
+* Electron GitHub Issue (Localization Fix)
+* Crowdin Translation Platform

@@ -28,6 +28,9 @@ open-contribution/
 ├── electron/
 │   └── electron.md
 │
+├── Oppia/
+│   └── README.md
+│
 └── ...
 ```
 
@@ -66,6 +69,18 @@ Each folder contains:
 - Cleared all Crowdin validation errors; issue marked resolved by maintainers
 
 👉 [`electron-localization-fix/README.md`](./electron-localization-fix/README.md)
+
+---
+
+### 3. 🎓 Oppia — Angular Strict Template Type-Checking
+
+> **Type:** Feature/Refactor · **PR:** [#26866](https://github.com/oppia/oppia/pull/26866) · ![Merged](https://img.shields.io/badge/Status-Merged-success?style=flat-square)
+
+- Fixed Angular strict template type-checking for blog dashboard files, resolving issue #26108.
+- Debugged and resolved complex CI failures caused by flaky Puppeteer acceptance tests.
+- Successfully managed merge conflicts on an already approved PR by merging `upstream/develop` without force-pushing to preserve review history.
+
+👉 [`Oppia/README.md`](./Oppia/README.md)
 
 ---
 
